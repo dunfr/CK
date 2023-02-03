@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float maxSpeed;
+    public float jumpPower;
     Rigidbody2D rigid;
 
     void Awake()
@@ -14,7 +15,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //stop speed
+        //jump
+        if (Input.GetButtonDown("Jump"))
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+       //stop speed
        if (Input.GetButtonUp("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
