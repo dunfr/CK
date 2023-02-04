@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Pohn'sFolder/Scenes/Catchball.unity
+    guid: 3a4eff8e2592f87428104ebce2551794
+  - enabled: 1
+    path: Assets/Pohn'sFolder/Scenes/PuzzleStage1.unity
+    guid: 74282d1fc2bfead4c964eadfde511e4d
+  - enabled: 1
+    path: Assets/Pohn'sFolder/Scenes/PuzzleStage2.unity
+    guid: 7e8567539c204374cb734ee778694fdd
   m_configObjects: {}
