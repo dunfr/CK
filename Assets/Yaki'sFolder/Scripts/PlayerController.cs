@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject stage1;
+    public GameObject stage2;
     public float maxSpeed;
     public float jumpPower;
     Rigidbody2D rigid;
     int playerLayer, groundLayer;
+    bool hasJumped;
 
     void Awake()
     {
@@ -21,8 +24,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !hasJumped)
+        {
+            hasJumped = true;
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        }
 
        //Stop Speed
        if (Input.GetButtonUp("Horizontal"))
@@ -48,5 +54,31 @@ public class PlayerController : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
         else if (rigid.velocity.x < maxSpeed*(-1)) //Left Max Speed
             rigid.velocity = new Vector2(maxSpeed*(-1), rigid.velocity.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Move The Stage
+        if (collision.CompareTag("Finish"))
+        {
+            if (stage1.activeSelf)
+            {
+                stage1.SetActive(false);
+                stage2.SetActive(true);
+            }
+            else
+            {
+                //Game Clear
+                Debug.Log("Game Cleared!");
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == groundLayer)
+        {
+            hasJumped = false;
+        }
     }
 }
