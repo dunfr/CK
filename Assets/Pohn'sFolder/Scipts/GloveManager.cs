@@ -36,7 +36,7 @@ public class GloveManager : MonoBehaviour
     }
     private IEnumerator GloveTime()
     {   
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
         grandfaGlove.enabled = false;
         grandmaGlove.enabled = false;
         isGrandfaGrab = true;

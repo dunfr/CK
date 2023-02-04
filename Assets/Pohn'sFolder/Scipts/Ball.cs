@@ -75,7 +75,7 @@ public class Ball : MonoBehaviour
     {
         if(collision.tag == "Glove")
         {
-            Debug.Log("dd");
+            UIManager.Instance.Catch();
         }
     }
 }
