@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Yaki'sFolder/Scenes/Jumpmap.unity
+    guid: 711742f6ad6f3544ba4059008182ebce
+  - enabled: 1
+    path: Assets/Yaki'sFolder/Scenes/Jumpmap2.unity
+    guid: ffd0602547e42d84b9b216f2e3465b9b
   m_configObjects: {}
