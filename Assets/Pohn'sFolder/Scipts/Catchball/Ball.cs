@@ -24,7 +24,9 @@ public class Ball : MonoBehaviour
         Grandfa = GameObject.Find("Granfater");
         Grandma = GameObject.Find("Grandmother");
         timer = 0.0f;
-        waitingTime = 0.5f;
+        waitingTime = .5f;
+        isgrandfaThrowing = false;
+        isgrandmaThrowing = false;
     }
 
     // Update is called once per frame
@@ -35,22 +37,34 @@ public class Ball : MonoBehaviour
 
         if (transform.position == Grandma.transform.position)
         {
-            timer += Time.deltaTime;
+            if(!isgrandfaThrowing)
+            {
+                timer += Time.deltaTime;
+            }
             if (timer > waitingTime)
             {
                 isgrandfaThrowing = true;
-                isgrandmaThrowing = false;
+                isgrandmaThrowing = false;               
+            }
+            if (isgrandfaThrowing)
+            {
                 timer = 0.0f;
             }
         }
         if (transform.position == Grandfa.transform.position)
         {
-            timer = 0.0f;
+            if (!isgrandmaThrowing)
+            {
+                timer += Time.deltaTime;
+            }
             timer += Time.deltaTime;
             if (timer > waitingTime)
             {
                 isgrandmaThrowing = true;
                 isgrandfaThrowing = false;
+            }
+            if (isgrandmaThrowing)
+            {
                 timer = 0.0f;
             }
         }
