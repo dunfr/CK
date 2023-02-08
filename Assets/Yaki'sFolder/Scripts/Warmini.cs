@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Warmini : MonoBehaviour
 {
     public int Index = 0;
-    public int key=9;
+    public int key = 9;
     private KeyCode[] keycodes;
     private KeyCode[] Randomkey =
     {
@@ -16,7 +17,7 @@ public class Warmini : MonoBehaviour
         keycodes = new KeyCode[key];
         for (int i = 0; i < keycodes.Length; i++)
         {
-            keycodes[i] = Randomkey[Random.Range(0, 4)]; 
+            keycodes[i] = Randomkey[Random.Range(0, 4)];
         }
     }
 

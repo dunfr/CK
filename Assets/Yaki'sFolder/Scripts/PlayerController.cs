@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Move The Stage
+
+        //Move to Next Stage
         if (collision.CompareTag("Finish"))
         {
             if (stage1.activeSelf)
@@ -68,8 +69,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //Game Clear
-                Debug.Log("Game Cleared!");
+                Debug.Log("Game Clear!");
             }
         }
     }
