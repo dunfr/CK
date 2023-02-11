@@ -7,6 +7,8 @@ TagManager:
   - Glove
   - Platform
   - Bullet
+  - Enemy
+  - HP
   layers:
   - Default
   - TransparentFX

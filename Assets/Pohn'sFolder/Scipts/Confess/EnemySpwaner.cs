@@ -14,7 +14,7 @@ public class EnemySpwaner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Uimanager.Instance.count = maxCount;
     }
     void Update()
     {
