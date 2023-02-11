@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Glove
   - Platform
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -25,9 +25,8 @@ public class Grandfa : MonoBehaviour
     private void move()
     {
         hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
 
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
+        moveVec = new Vector3(hAxis, 0, 0).normalized;
 
         transform.position += moveVec * speed * Time.deltaTime;
         anime.SetBool("isWalk", moveVec != Vector3.zero);
