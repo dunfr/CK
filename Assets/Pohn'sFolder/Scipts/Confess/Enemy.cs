@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
-            Uimanager.Instance.count--;
+            EnemySpwaner.Instance.enemyCount--;
         }
         if (collision.gameObject.tag == "HP")
         {
+            EnemySpwaner.Instance.enemyCount--;
+
             Destroy(gameObject);
         }
     }
