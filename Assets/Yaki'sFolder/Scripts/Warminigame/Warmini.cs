@@ -12,6 +12,9 @@ public class Warmini : MonoBehaviour
     {
         KeyCode.DownArrow, KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.RightArrow
     };
+
+    private int cycle = 0;
+
     private void keycodesinit()
     {
         keycodes = new KeyCode[key];
@@ -32,6 +35,17 @@ public class Warmini : MonoBehaviour
 
     void Update()
     {
+        if (Index == key)
+        {
+            Index = 0;
+            cycle++;
+            keycodesinit();
+            for (int i = 0; i < keycodes.Length; i++)
+            {
+                Debug.Log(keycodes[i]);
+            }
+        }
+
         if (Input.anyKeyDown)
         {
             if (Input.GetKeyDown(keycodes[Index]))
@@ -44,6 +58,12 @@ public class Warmini : MonoBehaviour
                 Index = 0;
                 Debug.Log("Wrong");
             }
+        }
+
+        if (cycle == 6)
+        {
+            Debug.Log("Game Clear");
+            return;
         }
     }
 }
