@@ -9,6 +9,10 @@ TagManager:
   - Bullet
   - Enemy
   - HP
+  - bad
+  - common
+  - good
+  - perfect
   layers:
   - Default
   - TransparentFX
