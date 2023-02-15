@@ -5,6 +5,11 @@ using UnityEngine.UIElements;
 
 public class Warmini : MonoBehaviour
 {
+    public GameObject Panel;
+    public GameObject DownArrow;
+    public GameObject UpArrow;
+    public GameObject LeftArrow;
+    public GameObject RightArrow;
     public int Index = 0;
     public int key = 9;
     private KeyCode[] keycodes;
@@ -21,7 +26,29 @@ public class Warmini : MonoBehaviour
         for (int i = 0; i < keycodes.Length; i++)
         {
             keycodes[i] = Randomkey[Random.Range(0, 4)];
+            GameObject RandomArrow = DownArrow;
+            switch (keycodes[i])
+            {
+                case KeyCode.DownArrow:
+                    RandomArrow = DownArrow; 
+                    break;
+                case KeyCode.UpArrow:
+                    RandomArrow = UpArrow; 
+                    break;
+                case KeyCode.LeftArrow:
+                    RandomArrow = LeftArrow;
+                    break;
+                case KeyCode.RightArrow:
+                    RandomArrow = RightArrow;
+                    break;
+            }
+
+            GameObject Arrow = Instantiate(RandomArrow, Panel.transform.parent);
+            Arrow.transform.SetParent(Panel.transform);
+            Arrow.transform.localScale = Vector3.one;
         }
+
+        
     }
 
     void Start()
