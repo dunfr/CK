@@ -14,6 +14,7 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-2:
       value: 505000030353515e5f5b5570167b0844444f497a782d2433287b4866b3b76d6c
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedSceneGuid-3:
       value: 0503500353040f0e5a5d5e7714265a44474e1d7f742a7f657e2b4867b7e4643e
       flags: 0
@@ -22,6 +23,13 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-5:
       value: 5057565e510d5f025f575824477b5b4442151d7e2f2a7664752b1b60e4e5313e
+=======
+    RecentlyUsedSceneGuid-5:
+      value: 5057565e510d5f025f575824477b5b4442151d7e2f2a7664752b1b60e4e5313e
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5400055151070f0d0c0a5a2443760b4414164c7a7971766075784561e7e2373d
+>>>>>>> Developyaki
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
