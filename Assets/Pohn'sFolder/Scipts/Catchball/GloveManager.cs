@@ -27,7 +27,7 @@ public class GloveManager : MonoBehaviour
             isGrandfaGrab = false;
             StartCoroutine("GloveTime");
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && isGrandmaGrab)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrandmaGrab)
         {
             grandmaGlove.enabled = true;
             isGrandmaGrab = false;

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball : Singleton<Ball>
 {
-    public GameObject Grandfa ;
-    public GameObject Grandma ;
+    public GameObject Grandfa;
+    public GameObject Grandma;
+    public GameObject perfectBar;
     public float ballSpeed;
     private float GrandfaX;
     private float GrandmaX;
@@ -15,18 +16,24 @@ public class Ball : MonoBehaviour
     private float height;
     private float timer;
     private float waitingTime;
-    private bool isgrandfaThrowing;
-    private bool isgrandmaThrowing;
+    public bool isgrandfaThrowing;
+    public bool isgrandmaThrowing;
+    public bool isCatch;
+    public bool isOuch;
 
     // Start is called before the first frame update
     void Start()
     {
-        Grandfa = GameObject.Find("Granfater");
-        Grandma = GameObject.Find("Grandmother");
+        Grandfa = GameObject.Find("GfGlove");
+        Grandma = GameObject.Find("GmGlove");
+        perfectBar = GameObject.Find("PerfactBar");
         timer = 0.0f;
         waitingTime = .5f;
         isgrandfaThrowing = false;
         isgrandmaThrowing = false;
+        perfectBar.SetActive(false);
+        isOuch = false;
+
     }
 
     // Update is called once per frame
@@ -37,14 +44,10 @@ public class Ball : MonoBehaviour
 
         if (transform.position == Grandma.transform.position)
         {
-            if(!isgrandfaThrowing)
+            if (!isCatch && !isOuch)
             {
-                timer += Time.deltaTime;
-            }
-            if (timer > waitingTime)
-            {
-                isgrandfaThrowing = true;
-                isgrandmaThrowing = false;               
+                UIManager.Instance.Aouch();
+                isOuch = true;
             }
             if (isgrandfaThrowing)
             {
@@ -53,6 +56,8 @@ public class Ball : MonoBehaviour
         }
         if (transform.position == Grandfa.transform.position)
         {
+            isCatch = false;
+            isOuch = false;
             if (!isgrandmaThrowing)
             {
                 timer += Time.deltaTime;
@@ -100,12 +105,14 @@ public class Ball : MonoBehaviour
         Vector3 movePostion = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = quaternion(movePostion - transform.position);
         transform.position = movePostion;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Glove")
+        if (collision.tag == "Glove" && isgrandmaThrowing == true && !isCatch)
         {
             UIManager.Instance.Catch();
+            isCatch = true;
         }
     }
 }
